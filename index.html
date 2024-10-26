@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    ============================================================
+    | META TAGS: Essential Information for SEO and Browser Configurations
+    ============================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Floating Hardships - A digital sanctuary for sharing burdens and finding celestial solutions.">
+
+    <!-- 
+    ============================================================
+    | TITLE: Defines the Title for the Web Page
+    ============================================================
+    -->
+    <title>Heavenly Floating Hardships | Ascend Through Struggles</title>
+
+    <!-- 
+    ============================================================
+    | EXTERNAL RESOURCES: Styles and Fonts
+    ============================================================
+    -->
+    <link rel="stylesheet" href="styles.css"> <!-- Custom Stylesheet -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+
+    <!-- FontAwesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" defer></script>
+
+    <!-- Favicon for the Website -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 
+    ============================================================
+    | BACKGROUND OVERLAY: For visual effects on the background
+    ============================================================
+    -->
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <!-- 
+    ============================================================
+    | MAIN CONTAINER: Wraps the whole application
+    ============================================================
+    -->
+    <div class="app-container">
+
+        <!-- 
+        ============================================================
+        | HEADER SECTION: Contains Logo, Title, and Navigation Icons
+        ============================================================
+        -->
+        <header class="app-header">
+            <div class="header-left">
+                <!-- Logo and Title -->
+                <div class="logo-container">
+                    <img src="images/profile.jpeg" alt="Floating Hardships Logo" class="logo" width="100" height="100">
+                    <h1>Floating Hardships</h1>
+                </div>
+                <p class="tagline">Ascend through struggles, find celestial solutions</p>
+            </div>
+
+            <!-- 
+            ============================================================
+            | HEADER ICONS: Quick Navigation Icons for Home, About, and Contact
+            ============================================================
+            -->
+            <div class="header-right">
+                <!-- Home Icon -->
+                <a href="#" id="home-icon" class="icon-btn" aria-label="Home" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <!-- About Icon -->
+                <a href="#" id="about-icon" class="icon-btn" aria-label="About" title="About">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+                <!-- Contact Icon -->
+                <a href="#" id="contact-icon" class="icon-btn" aria-label="Contact" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- 
+        ============================================================
+        | MAIN CONTENT: Submission Form and Hardship Filters
+        ============================================================
+        -->
+        <main class="main-content">
+
+            <!-- 
+            ============================================================
+            | FORM SECTION: Form for users to submit their hardships
+            ============================================================
+            -->
+            <section id="submit-hardship" class="submit-section">
+                <h2>Share Your Earthly Burden</h2>
+                <form id="hardship-form" class="hardship-form">
+                    <!-- Input TextArea for Hardship -->
+                    <div class="input-container">
+                        <label for="hardship-input" class="visually-hidden">Describe your hardship</label>
+                        <textarea id="hardship-input" placeholder="Describe your hardship and let it float to the heavens..." required aria-describedby="char-count"></textarea>
+                        <div id="char-count" class="char-count" aria-live="polite">0 / 1000</div>
+                    </div>
+                    <!-- Category Dropdown for Hardship Classification -->
+                    <div class="category-selection">
+                        <label for="category-select">Choose a category:</label>
+                        <select id="category-select" required>
+                            <option value="">Select a category</option>
+                            <option value="personal">Personal</option>
+                            <option value="family">Family Issues</option>
+                            <option value="school">School</option>
+                            <option value="work">Work Related</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-feather" aria-hidden="true"></i> Release Your Burden
+                    </button>
+                </form>
+            </section>
+
+            <!-- 
+            ============================================================
+            | FILTER AND SORT SECTION: Controls for filtering and sorting hardships
+            ============================================================
+            -->
+            <div class="filter-sort-container">
+                <!-- Filter Dropdown -->
+                <label for="filter-select" class="visually-hidden">Filter hardships</label>
+                <select id="filter-select" class="filter-sort-select" aria-label="Filter hardships">
+                    <option value="all">All Hardships</option>
+                    <option value="personal">Personal</option>
+                    <option value="family">Family Issues</option>
+                    <option value="school">School</option>
+                    <option value="work">Work Related</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <!-- Sort Dropdown -->
+                <label for="sort-select" class="visually-hidden">Sort hardships</label>
+                <select id="sort-select" class="filter-sort-select" aria-label="Sort hardships">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                </select>
+
+                <!-- User-Specific Submissions Button -->
+                <button id="my-hardships-btn" class="filter-sort-select">My Submissions</button>
+            </div>
+
+            <!-- 
+            ============================================================
+            | HARDSHIP GRID: Container for the hardship cards to be dynamically loaded
+            ============================================================
+            -->
+            <section id="hardship-container" class="hardship-grid" aria-live="polite"></section>
+
+            <!-- 
+            ============================================================
+            | PAGINATION: Load more button for additional hardships
+            ============================================================
+            -->
+            <div class="pagination">
+                <button id="load-more" class="load-more-btn">Reveal More Hardships</button>
+            </div>
+        </main>
+
+        <!-- 
+        ============================================================
+        | FOOTER SECTION: Closing remarks and copyright information
+        ============================================================
+        -->
+        <footer class="app-footer">
+            <p>&copy; 2024 Fazil~. All rights celestially reserved.</p>
+        </footer>
+    </div>
+
+    <!-- 
+    ============================================================
+    | MODAL SECTION: Modals for Home, About, and Contact
+    ============================================================
+    -->
+    <div id="modal-container" class="modal-container" aria-hidden="true">
+        <!-- Home Modal -->
+        <div id="home-modal" class="modal" aria-hidden="true">
+            <h2>Welcome to Heavenly Floating Hardships</h2>
+            <p>This is your sanctuary to share your burdens and find solace.</p>
+            <button id="close-home-modal">Close</button>
+        </div>
+
+        <!-- About Modal -->
+        <div id="about-modal" class="modal" aria-hidden="true">
+            <h2>About Us</h2>
+            <p>Heavenly Floating Hardships is a community-driven platform created to offer support and solutions to life's struggles.</p>
+            <button id="close-about-modal">Close</button>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="modal" aria-hidden="true">
+            <h2>Contact Us</h2>
+            <p>We are here to listen and help. Feel free to reach out to us at fazil.timedestiny@gmail.com</p>
+            <button id="close-contact-modal">Close</button>
+        </div>
+    </div>
+
+    <!-- 
+    ============================================================
+    | SCRIPTS: External JavaScript File for interactive features
+    ============================================================
+    -->
+    <script src="script.js" defer></script>
+</body>
+</html>
